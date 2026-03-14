@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <title>Calculadora de Redução de Dívidas</title>
+</head>
+
+<body>
+    <div class="calculadora">
+        <h1><b>Calculadora de Redução de Dívidas</b></h1>
+        <p class="info">
+            Nossa Calculadora tem como base a resolução do <b>Provisionamento Bancário.</b>
+            Quanto maior o atraso da dívida,
+            maior o valor que o banco considera perder na quitação do débito, então maiores são as chances de obter
+            <b>redução nos valores.</b>
+        </p>
+
+        <div class="input-section">
+            <div class="entrada">
+                <div>
+                    <label for="valor-parcelas">Valor das Parcelas:</label>
+                    <input type="text" id="valor-parcelas" placeholder="R$ 0,00" oninput="formatarMoeda(this)">
+                </div>
+                <div>
+                    <label for="total-parcelas">Total de Parcelas:</label>
+                    <input type="number" id="total-parcelas" placeholder="0" min="1">
+                </div>
+                <div>
+                    <label for="parcelas-pagas">Parcelas Já Pagas:</label>
+                    <input type="number" id="parcelas-pagas" placeholder="0" min="0">
+                </div>
+                <div>
+                    <label for="meses-atraso">Meses em Atraso:</label>
+                    <input type="number" id="meses-atraso" placeholder="0" min="0">
+                </div>
+            </div>
+
+            <div class="mensagem-erro" id="mensagem-erro"></div>
+
+            <button onclick="calcularProvisionamento()" id="calcular-btn">Calcular Provisionamento</button>
+        </div>
+
+        <div class="output-section" id="resultados">
+            <div class="resultado-grid">
+                <div class="quadro" id="valor-total-contrato"></div>
+                <div class="quadro" id="divida-em-aberto"></div>
+                <div class="quadro" id="valor-total-atraso"></div>
+            </div>
+
+            <div class="chart-and-info">
+                <div id="chart-container">
+                    <canvas id="provisionamento-chart"
+                        style="display: block; box-sizing: border-box; height: 0px; width: 0px;" height="0"
+                        width="0"></canvas>
+                    <div id="chart-center-text">
+                        <span class="percentage">0%</span>
+                        <span class="footer-label">% PROVISIONADO</span>
+                    </div>
+                </div>
+                <div class="info-quadro verde-variant">
+                    <span><span class="label">Classificação:</span> <span class="value"
+                            id="classificacao-divida">N/A</span></span>
+                    <span><span class="label">Valor Total Provisionado:</span> <span class="value"
+                            id="valor-provisionado">R$ 0,00</span></span>
+                </div>
+            </div>
+
+            <div class="texto-explicativo" id="texto-explicativo">
+                <p><b>Resumo do seu caso:</b></p>
+                <p>Com um <b>Valor Total do Contrato de R$&nbsp;0,00,</b> e uma <b>Dívida em Aberto de R$&nbsp;0,00,</b>
+                    o
+                    banco já provisionou aproximadamente <b>0%</b> deste valor, totalizando <b>R$&nbsp;0,00.</b> Isso
+                    significa que, atualmente, a sua dívida não possui um provisionamento significativo e está na
+                    classificação <b>A (0-14 dias)</b>.</p>
+                <p>Este é um momento ideal para buscar <b>renegociação e evitar que a situação se agrave</b> e o
+                    provisionamento aumente no futuro.</p>
+            </div>
+
+            <button id="whatsapp-btn" onclick="redirecionarWhatsApp()">Contato via WhatsApp</button>
+            <button id="imprimir-btn" onclick="imprimirResultados()">Salvar Resultados</button>
+        </div>
+    </div>
+    <script>src = "app.js"</script>
+</body>
