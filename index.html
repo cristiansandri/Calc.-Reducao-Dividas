@@ -16,29 +16,29 @@
     <div class="calculadora">
         <h1><b>Calculadora de Redução de Dívidas</b></h1>
         <p class="info">
-            Nossa Calculadora tem como base a resolução do <b>Provisionamento Bancário.</b>
+            Essa Calculadora tem como base a resolução do <b>Provisionamento Bancário.</b><br><br>
             Quanto maior o atraso da dívida,
             maior o valor que o banco considera perder na quitação do débito, então maiores são as chances de obter
-            <b>redução nos valores.</b>
+            <b>redução nos valores devidos.</b>
         </p>
 
         <div class="input-section">
             <div class="entrada">
                 <div>
-                    <label for="valor-parcelas">Valor das Parcelas:</label>
-                    <input type="text" id="valor-parcelas" placeholder="R$ 0,00" oninput="formatarMoeda(this)">
+                    <label for="valor-parcelas">Valor Parcelas:</label>
+                    <input type="text" id="valor-parcelas" placeholder="R$ 500,00" oninput="formatarMoeda(this)">
                 </div>
                 <div>
                     <label for="total-parcelas">Total de Parcelas:</label>
-                    <input type="number" id="total-parcelas" placeholder="0" min="1">
+                    <input type="number" id="total-parcelas" placeholder="12" min="1">
                 </div>
                 <div>
-                    <label for="parcelas-pagas">Parcelas Já Pagas:</label>
-                    <input type="number" id="parcelas-pagas" placeholder="0" min="0">
+                    <label for="parcelas-pagas">Parcelas Pagas:</label>
+                    <input type="number" id="parcelas-pagas" placeholder="3" min="0" max="999">
                 </div>
                 <div>
                     <label for="meses-atraso">Meses em Atraso:</label>
-                    <input type="number" id="meses-atraso" placeholder="0" min="0">
+                    <input type="number" id="meses-atraso" placeholder="6" min="0"max="999">
                 </div>
             </div>
 
@@ -87,5 +87,8 @@
             <button id="imprimir-btn" onclick="imprimirResultados()">Salvar Resultados</button>
         </div>
     </div>
-    <script>src = "app.js"</script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
 </body>
+
+</html>

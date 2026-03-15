@@ -3,8 +3,7 @@ body {
     align-items: center;
     font-family: 'Poppins', sans-serif;
     background-color: #1b1b1b;
-    max-height: 100vh;
-    margin: 100px;
+    margin: 20px;
 }
 
 .calculadora {
@@ -37,12 +36,11 @@ body {
 
 .input-section,
 .output-section {
-    padding: 20px;
-    margin-bottom: 30px;
+    padding: 20px 40px 20px 20px;
 }
 
 .input-section {
-    background: #fff;
+    background: #cacaca;
     border-radius: 10px;
 }
 
@@ -54,14 +52,15 @@ body {
 .entrada {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    column-gap: 20px;
     justify-content: center;
 }
 
 .entrada>div {
     flex: 1;
-    min-width: 200px;
-    max-width: 280px;
+    min-width: 20%;
+    max-width: 50%;
+    
 }
 
 .entrada label {
@@ -73,7 +72,7 @@ body {
 
 .entrada input {
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #707070;
     border-radius: 10px;
     width: 100%;
     margin-bottom: 10px;
@@ -311,7 +310,7 @@ button:focus {
 
     .input-section,
     .output-section {
-        padding: 10px;
+        padding: 20px 40px 20px 20px;
     }
 
     .entrada>div {

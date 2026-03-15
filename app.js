@@ -216,21 +216,19 @@ function redirecionarWhatsApp() {
     const valorProvisionadoText = document.getElementById("valor-provisionado").innerText.trim();
     const percentualProvisionamento = document.getElementById("chart-center-text").querySelector('.percentage').innerText;
 
-    const mensagemWhatsApp = `Olá! Gostaria de saber mais sobre o provisionamento bancário da minha dívida. Fiz o cálculo e o resultado foi:\n\n` +
-        `Valor Total do Contrato: ${valorTotalContratoText}\n` +
-        `Dívida em Aberto: ${dividaEmAbertoText}\n` +
+    const mensagemWhatsApp = `Olá! Gostaria de saber mais sobre o provisionamento bancário da minha dívida. Fiz o cálculo e o resultado foi:\n\n` + 
+        `Valor Total do Contrato: ${valorTotalContratoText}\n` + 
+        `Dívida em Aberto: ${dividaEmAbertoText}\n` + 
         `Valor Total em Atraso: ${valorTotalAtrasoText}\n` +
-        `Classificação: ${classificacaoText}\n` +
-        `Percentual de Provisionamento: ${percentualProvisionamento}\n` +
-        `Valor Total Provisionado: ${valorProvisionadoText}\n\n` +
+        `Classificação: ${classificacaoText}\n` + 
+        `Percentual de Provisionamento: ${percentualProvisionamento}\n` + 
+        `Valor Total Provisionado: ${valorProvisionadoText}\n\n` + 
         `Gostaria de discutir as oportunidades de negociação.`;
 
-    const numeroTelefone = "554284391133";
+    const numeroTelefone = "5542991088896";
     const urlWhatsApp = `https://wa.me/${numeroTelefone}?text=${encodeURIComponent(mensagemWhatsApp)}`;
     window.open(urlWhatsApp, '_blank');
 }
-
-
 
 function imprimirResultados() {
     if (document.getElementById("resultados").style.display !== "block" || !provisionamentoChart) {
@@ -255,7 +253,6 @@ function imprimirResultados() {
                 <html>
                 <head>
                     <title>Simulador de Provisionamento Bancário</title>
-                    
                     <style>
                         body { font-family: 'Poppins', sans-serif; margin: 25px; }
                         h1 { text-align: center; color: #333; }
@@ -296,7 +293,6 @@ function imprimirResultados() {
                             color: #888;
                             page-break-before: auto;
                         }
-                        
                     </style>
                 </head>
                 <body>
@@ -337,20 +333,20 @@ function imprimirResultados() {
 
                     <div class="footer">
                         <p>Simulação feita na calculadora de provisionamento da Martins Felix Advogados.<br>Disponível em: www.Martinsfelix.com.br</p>
-                    </div>`;
+                    </div>
+                </body>
+                </html>`;
 
+    // A lógica de abrir a janela e imprimir precisava ficar DENTRO da função
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(htmlParaImprimir);
+    printWindow.document.close();
+    printWindow.focus();
+    setTimeout(() => {
+        printWindow.print();
+        printWindow.close();
+    }, 1000);
 }
-
-
-const printWindow = window.open('', '_blank');
-printWindow.document.write(htmlParaImprimir);
-printWindow.document.close();
-printWindow.focus();
-setTimeout(() => {
-    printWindow.print();
-    printWindow.close();
-}, 1000);
-
 
 document.addEventListener('DOMContentLoaded', (event) => {
     renderizarGraficoDonut(0, "A (0-14 dias)");
@@ -358,34 +354,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     gerarTextoExplicativo(0, 0, 0, 0, 0, initialClassificacao);
     updateInfoQuadroColors(initialClassificacao);
 });
-
-
-type = "text/javascript" id = "perfmatters-delayed-styles-js"
-
-!function () {
-    const e = "keydown","mousemove", "wheel", "touchmove", "touchstart", "touchend";
-
-    function t() {
-        document.querySelectorAll("link[data-pmdelayedstyle]").
-            forEach(function (e) {
-                e.setAttribute("href", e.getAttribute("data-pmdelayedstyle"))
-            }),
-            e.forEach(function (e) {
-                window.removeEventListener(e, t, {
-                    passive: !0
-                }
-                )
-            }
-            )
-    }
-    e.forEach(function (e) {
-        window.addEventListener(e, t, {
-            passive: !0
-        })
-    })
-}();
-
-
-
-
-
