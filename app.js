@@ -32,7 +32,7 @@ function calcularProvisionamento() {
     const mesesAtraso = parseInt(mesesAtrasoInput) || 0;
 
     if (valorParcelas <= 0 || totalParcelas <= 0 || mesesAtraso < 0) {
-        erroContainer.innerHTML = "Por favor, insira valores válidos e positivos para Valor das Parcelas, Total de Parcelas e Meses em Atraso (não pode ser negativo).";
+        erroContainer.innerHTML = "Por favor, insira valores válidos.";
         document.getElementById("resultados").style.display = "none";
         if (provisionamentoChart) provisionamentoChart.destroy();
         return;
